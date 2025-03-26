@@ -7,12 +7,14 @@ from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
 
-# Download necessary NLTK data
-nltk.download('punkt')
-nltk.download('stopwords')
+# Download required NLTK data
+nltk.download('punkt')  # Fix for word_tokenize()
+nltk.download('stopwords')  # Fix for stopwords
 
 def transform_text(text):
     text = text.lower()
+    
+    # Ensure tokenization works
     text = nltk.word_tokenize(text)
 
     y = []
